@@ -1,0 +1,443 @@
+body, html {
+	scroll-behavior: smooth;
+}
+
+body {
+	overflow-x: hidden !important;
+	color: white;
+	scroll-behavior: smooth;
+	font-family: "Poppins", sans-serif;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	z-index: 1;
+	padding-bottom: 20vh;
+	min-height: 95vh;
+}
+
+body:after {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 110%;
+	background: radial-gradient(circle, rgb(38, 43, 101, 0.9) 0%, #262b65 100%), url(https://s9.limitedrun.com/images/1401882/sleepybg.jpg);	
+	background-size: cover;
+	z-index: -10;
+	pointer-events: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+.center-content {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#loadscreen {
+	z-index: 99;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	height: 100%;
+	transition: all 0.5s ease-out; 
+	opacity: 0;
+	background: #262b65;
+	pointer-events: none;
+}
+
+#loadscreen .loaderel {
+	animation: cavejitter 5s infinite cubic-bezier(.89,-0.58,.13,1.42);
+	animation-fill-mode: both;
+	animation-play-state: paused;
+	position: absolute;
+}
+
+#loadscreen .loaderel, #loadscreen #loaderbg {
+	max-width: 500px;
+	width: 90vw;
+}
+
+.loading #loadscreen {
+	opacity: 1;
+	pointer-events: initial;
+}
+
+.loading #loadscreen .loaderel {
+	animation-play-state: running;
+}
+
+#loadscreen .loaderel:nth-of-type(1) {
+	animation-delay: 0.2s;
+}
+
+#loadscreen .loaderel:nth-of-type(2) {
+	animation-delay: 0.4s;
+}
+
+#loadscreen .loaderel:nth-of-type(3) {
+	animation-delay: 0.6s;
+}
+
+#loadscreen .loaderel:nth-of-type(4) {
+	animation-delay: 0.8s;
+}
+
+#loadscreen .loaderel:nth-of-type(5) {
+	animation-delay: 1s;
+}
+
+#loadscreen .loaderel:nth-of-type(6) {
+	animation-delay: 1.2s;
+}
+
+#loadscreen .loaderel:nth-of-type(7) {
+	animation-delay: 1.4s;
+}
+
+#loadscreen .loaderel:nth-of-type(8) {
+	animation-delay: 1.6s;
+}
+
+/* ANIMATIONS */
+@keyframes cavejitter {
+	0% { 
+		transform: translateY(0px);
+	}
+	
+	25% {   
+		transform: translateY(20px);
+	}
+	
+	50% {
+		transform: translateY(-20px);
+	}
+	
+	100% { 
+		transform: translateY(0px);
+	}
+}
+
+/* CONTENT */
+header {
+	margin: 5vh auto;
+	padding: 5vh;
+	height: calc(25vw + 20vh);
+	width: calc(25vw + 20vh);
+	border-radius: 100%;
+	background-image: url(../img/sleepyheadbg.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+@media only screen and (max-width: 800px) {
+	header {
+		height: calc(15vw + 33vh);
+		width: calc(15vw + 33vh);
+	}
+}
+
+header img {
+	display: block;
+	margin: auto;
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	flex-wrap: wrap;
+}
+
+nav a {
+	display: inline-block;
+	padding: 1vw;
+	font-size: calc(1rem + 0.5vw);
+	font-weight: 700;
+	border-bottom: 1vw white solid;	
+	transition: all 1s cubic-bezier(.5,.02,.26,1.35);	
+}
+
+nav a:hover {
+	letter-spacing: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+	nav a {
+		flex-basis: 50%;
+		padding: 2vh 1vw;
+	}
+}
+
+center:first-child {
+	margin-bottom: 2vw;
+}
+
+h1, h2, h3 {
+	font-weight: 700;
+	text-transform: lowercase;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	font-size: calc(1rem + 3vw);
+	line-height: calc(1rem + 5vw);
+}
+
+h2 {
+	font-size: calc(1rem + 1vw);
+	line-height: calc(1rem + 2vw);
+	display: inline-block;
+	margin: 2vw 0 0;
+	border-bottom: 1vh white dotted;
+}
+
+h3 {
+	text-align: left;
+	font-size: calc(1rem + 0.5vw);
+	line-height: calc(1rem + 1vw);
+}
+
+.logo {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.screen {
+	display: block;
+}
+
+#content {
+	position: relative;
+	padding: 5vh 12vw;
+	overflow: hidden;
+}
+
+#content section {
+	max-width: 1200px;
+	margin: auto;
+}
+
+section:not(.active) {
+	position: absolute;
+	height: 0px;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+section ul {
+	position: relative;
+	margin-top: 2.5vw;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+section li {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin-top: calc(10px + 1vh);
+	padding: calc(1vh + 10px) 10px 10px;
+	text-align: center;
+	flex: 50%;
+	width: 300px;
+	max-width: 100%;
+}
+
+#popup li {
+	flex: 33%;
+}
+
+section ul:after {
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	border-left: 1vh white dotted;
+	border-right: 1vh white dotted;
+	margin: auto;
+}
+
+@media only screen and (max-width: 700px) {
+	section li, #popup li {
+		flex: 100%;
+		width: 100%;
+	}
+}
+
+nav a:nth-of-type(3n+1), li:nth-child(3n+1), li:nth-child(3n+1) .tickets a, li:nth-child(3n+1) a, ul:nth-of-type(3n+1):after, h2:nth-of-type(3n+1) {
+	border-color: #7fa540;
+}
+
+nav a:nth-of-type(3n+2), li:nth-child(3n+2), li:nth-child(3n+2) .tickets a, li:nth-child(3n+2) a, ul:nth-of-type(3n+2):after, h2:nth-of-type(3n+2) {
+	border-color: #8489c4;
+}
+
+nav a:nth-of-type(3n+3), li:nth-child(3n+3), li:nth-child(3n+3) .tickets a, li:nth-child(3n+3) a, ul:nth-of-type(3n+3):after, h2:nth-of-type(3n+3) {
+	border-color: #9cb7d6;
+}
+
+nav a:nth-of-type(3n+1), h3:nth-of-type(3n+1), li:nth-child(3n+1) a, li:nth-child(3n+1) .details a, h2:nth-of-type(3n+1) {
+	color: #7fa540;
+}
+
+nav a:nth-of-type(3n+2), h3:nth-of-type(3n+2),li:nth-child(3n+2) a, li:nth-child(3n+2) .details a, h2:nth-of-type(3n+2) {
+	color: #8489c4;
+}
+
+nav a:nth-of-type(3n+3), h3:nth-of-type(3n+3),li:nth-child(3n+3) a, li:nth-child(3n+3) .details a, h2:nth-of-type(3n+3) {
+	color: #9cb7d6;
+}
+
+#london li, #london li:after, #london .tickets a, #london .details {
+	border-color: #9cb7d6;
+}
+
+#london .tickets a {
+	color: #9cb7d6;
+}
+
+#philly li, #philly li:after, #philly .tickets a, #philly .details {
+	border-color: #8489c4;
+}
+
+#philly .tickets a {
+	color: #8489c4;
+}
+
+#ny li, #ny li:after, #ny .tickets a, #ny .details {
+	border-color: #7fa540;
+}
+
+#ny .tickets a {
+	color: #7fa540;
+}
+
+li span {
+	transition: all 1s ease-in-out;
+}
+
+.date, .loc {
+	font-size: calc(1rem + 0.5vw);
+	font-weight: 500;
+	text-transform: lowercase;
+	display: block;
+}
+
+.date {
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.tickets {
+	padding-top: calc(10px + 0.5vw);
+	display: inline-block;
+	font-weight: 700;
+	font-size: calc(1rem + 0.5vw);
+	line-height: calc(3rem + 0.5vw);
+}
+
+.tickets a {
+	border-bottom: 0.5vw solid white;
+	transition: all 1s ease-in-out;
+}
+
+.details {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 10px 5px 0;
+	font-size: calc(1rem + 0.25vw);
+	width: 100%;
+	max-width: 500px;
+}
+
+.details a {
+	font-weight: 800;
+	letter-spacing: 1px;
+}
+
+footer {
+	position: absolute;
+	bottom: 5vh;
+	left: 0;
+	right: 0;
+	margin: auto;
+	max-width: 70vw;
+	text-align: center;
+	z-index: 2;
+}
+
+footer > a {
+	display: inline-block;
+	margin: auto;
+	padding: 10px;
+	border-bottom: 0.5vw solid #a91c20;
+	color: #a91c20;
+	transition: all 1s ease-in-out;
+	font-weight: 700;
+	font-size: calc(1rem + 0.5vw);
+}
+
+footer > a:hover {
+	letter-spacing: 3px;
+}
+
+footer ul li {
+	display: inline-block;
+	width: auto;
+	margin: 0 3px;
+	height: 50px;
+}
+
+footer .socials li a {
+	font-size: calc(1rem + 0.5vw);
+	
+	border-bottom-width: 0.5vw;
+	border-bottom-style: solid;
+	padding: 5px;
+	
+}
+
+/* SCREEN SPECIFIC ANIM */
+@media only screen and (min-width: 600px) {
+	li:hover .tickets a {
+		letter-spacing: 3px;
+	}
+}
+
+/* GRAPHICS */
+.star {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  border-radius: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle, #aea919 10%, #55aac738 30%, rgba(31,27,34,0) 54%);
+}
+
+.star.blink {
+  opacity: 0.8;
+}
