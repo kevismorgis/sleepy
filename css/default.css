@@ -15,6 +15,7 @@ body {
 	z-index: 1;
 	padding-bottom: 20vh;
 	min-height: 95vh;
+	font-size: calc(1rem + 0.15vw);
 }
 
 body:after {
@@ -163,7 +164,7 @@ nav {
 nav a {
 	display: inline-block;
 	padding: 1vw;
-	font-size: calc(1rem + 0.5vw);
+	font-size: calc(1em + 0.5vw);
 	font-weight: 700;
 	border-bottom: 1vw white solid;	
 	transition: all 1s cubic-bezier(.5,.02,.26,1.35);	
@@ -179,6 +180,7 @@ nav a {
 	nav a {
 		flex-basis: 50%;
 		padding: 2vh 1vw;
+		text-align: center;
 	}
 }
 
@@ -194,13 +196,13 @@ h1, h2, h3 {
 
 h1 {
 	text-align: center;
-	font-size: calc(1rem + 3vw);
-	line-height: calc(1rem + 5vw);
+	font-size: calc(1em + 3vw);
+	line-height: calc(1em + 5vw);
 }
 
 h2 {
-	font-size: calc(1rem + 1vw);
-	line-height: calc(1rem + 2vw);
+	font-size: calc(1em + 1vw);
+	line-height: calc(1em + 2vw);
 	display: inline-block;
 	margin: 2vw 0 0;
 	border-bottom: 1vh white dotted;
@@ -208,8 +210,8 @@ h2 {
 
 h3 {
 	text-align: left;
-	font-size: calc(1rem + 0.5vw);
-	line-height: calc(1rem + 1vw);
+	font-size: calc(1em + 0.5vw);
+	line-height: calc(1em + 1vw);
 }
 
 .logo {
@@ -247,6 +249,7 @@ section ul {
 	margin-top: 2.5vw;
 	display: flex;
 	flex-wrap: wrap;
+	font-size: 0.9em;
 }
 
 section li {
@@ -265,6 +268,26 @@ section li {
 	flex: 33%;
 }
 
+#performances  li {
+	display: inline-flex;
+	flex-direction: row;
+	padding: 0 calc(10px + 1vh);
+	flex: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#performances li > span {
+	flex-basis: 25%;
+  text-align: left;
+	padding-right: 10px;
+}
+
+#performances li .tickets {
+	padding: 0;
+	text-align: right;
+}
+
 section ul:after {
 	content: "";
 	pointer-events: none;
@@ -280,58 +303,117 @@ section ul:after {
 }
 
 @media only screen and (max-width: 700px) {
+	body {
+		font-size: calc(1rem + 0.25vw);
+	}
+	
 	section li, #popup li {
 		flex: 100%;
 		width: 100%;
+		border-bottom: 2px solid rgb(255, 255, 255, 0.2);
+		padding-bottom: 20px;
+	}
+	
+	section li:last-child, #popup li:last-child {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	#popup h2 {
+		font-size: 1.5em;
+		line-height: 2em;
 	}
 }
 
-nav a:nth-of-type(3n+1), li:nth-child(3n+1), li:nth-child(3n+1) .tickets a, li:nth-child(3n+1) a, ul:nth-of-type(3n+1):after, h2:nth-of-type(3n+1) {
+@media only screen and (max-width: 600px) {	
+	#performances li {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+nav a:nth-of-type(6n+1), li:nth-child(6n+1), li:nth-child(6n+1) .tickets a, li:nth-child(6n+1) a, ul:nth-of-type(6n+1):after, h2:nth-of-type(6n+1) {
 	border-color: #7fa540;
 }
 
-nav a:nth-of-type(3n+2), li:nth-child(3n+2), li:nth-child(3n+2) .tickets a, li:nth-child(3n+2) a, ul:nth-of-type(3n+2):after, h2:nth-of-type(3n+2) {
+nav a:nth-of-type(6n+2), li:nth-child(6n+2), li:nth-child(6n+2) .tickets a, li:nth-child(6n+2) a, ul:nth-of-type(6n+2):after, h2:nth-of-type(6n+2) {
 	border-color: #8489c4;
 }
 
-nav a:nth-of-type(3n+3), li:nth-child(3n+3), li:nth-child(3n+3) .tickets a, li:nth-child(3n+3) a, ul:nth-of-type(3n+3):after, h2:nth-of-type(3n+3) {
+nav a:nth-of-type(6n+3), li:nth-child(6n+3), li:nth-child(6n+3) .tickets a, li:nth-child(6n+3) a, ul:nth-of-type(6n+3):after, h2:nth-of-type(6n+3) {
 	border-color: #9cb7d6;
 }
 
-nav a:nth-of-type(3n+1), h3:nth-of-type(3n+1), li:nth-child(3n+1) a, li:nth-child(3n+1) .details a, h2:nth-of-type(3n+1) {
+nav a:nth-of-type(6n+4), h3:nth-of-type(6n+4),li:nth-child(6n+4) a, li:nth-child(6n+4) .details a, h2:nth-of-type(6n+4) {
+	border-color: #df5a6f;
+}
+
+nav a:nth-of-type(6n+5), h3:nth-of-type(6n+5),li:nth-child(6n+5) a, li:nth-child(6n+5) .details a, h2:nth-of-type(6n+5) {
+	border-color: #c5bd2e;
+}
+
+nav a:nth-of-type(6n+6), h3:nth-of-type(6n+6),li:nth-child(6n+6) a, li:nth-child(6n+6) .details a, h2:nth-of-type(6n+6) {
+	border-color: #e7d9d0;
+}
+
+nav a:nth-of-type(6n+1), h3:nth-of-type(6n+1), li:nth-child(6n+1) a, li:nth-child(6n+1) .details a, h2:nth-of-type(6n+1) {
 	color: #7fa540;
 }
 
-nav a:nth-of-type(3n+2), h3:nth-of-type(3n+2),li:nth-child(3n+2) a, li:nth-child(3n+2) .details a, h2:nth-of-type(3n+2) {
+nav a:nth-of-type(6n+2), h3:nth-of-type(6n+2),li:nth-child(6n+2) a, li:nth-child(6n+2) .details a, h2:nth-of-type(6n+2) {
 	color: #8489c4;
 }
 
-nav a:nth-of-type(3n+3), h3:nth-of-type(3n+3),li:nth-child(3n+3) a, li:nth-child(3n+3) .details a, h2:nth-of-type(3n+3) {
+nav a:nth-of-type(6n+3), h3:nth-of-type(6n+3),li:nth-child(6n+3) a, li:nth-child(6n+3) .details a, h2:nth-of-type(6n+3) {
 	color: #9cb7d6;
 }
 
-#london li, #london li:after, #london .tickets a, #london .details {
-	border-color: #9cb7d6;
+nav a:nth-of-type(6n+4), h3:nth-of-type(6n+4),li:nth-child(6n+4) a, li:nth-child(6n+4) .details a, h2:nth-of-type(6n+4) {
+	color: #df5a6f;
 }
 
-#london .tickets a {
-	color: #9cb7d6;
+nav a:nth-of-type(6n+5), h3:nth-of-type(6n+5),li:nth-child(6n+5) a, li:nth-child(6n+5) .details a, h2:nth-of-type(6n+5) {
+	color: #c5bd2e;
 }
 
-#philly li, #philly li:after, #philly .tickets a, #philly .details {
-	border-color: #8489c4;
+nav a:nth-of-type(6n+6), h3:nth-of-type(6n+6),li:nth-child(6n+6) a, li:nth-child(6n+6) .details a, h2:nth-of-type(6n+6) {
+	color: #e7d9d0;
 }
 
-#philly .tickets a {
-	color: #8489c4;
+ul.city-dates {
+	padding-bottom: 20px;
+	border-radius: 50px;
+	overflow: hidden;
 }
 
-#ny li, #ny li:after, #ny .tickets a, #ny .details {
-	border-color: #7fa540;
+ul.city-dates:after {
+	border: 0;
 }
 
-#ny .tickets a {
-	color: #7fa540;
+ul.city-dates li, ul.city-dates li:after, ul.city-dates .tickets a, ul.city-dates .details {
+	border-color: #252b64;
+}
+
+ul.city-dates li a {
+	color: #252b64;
+}
+
+h2.london-header {
+	color: #df5a6f;
+	border-color: #df5a6f;
+}
+
+#london {
+	background: #df5a6f;
+}
+
+#philly {
+	background: #8489c4;
+}
+
+#ny {
+	background-color: #7fa540;
 }
 
 li span {
@@ -339,7 +421,7 @@ li span {
 }
 
 .date, .loc {
-	font-size: calc(1rem + 0.5vw);
+	font-size: calc(1em + 0.5vw);
 	font-weight: 500;
 	text-transform: lowercase;
 	display: block;
@@ -354,8 +436,8 @@ li span {
 	padding-top: calc(10px + 0.5vw);
 	display: inline-block;
 	font-weight: 700;
-	font-size: calc(1rem + 0.5vw);
-	line-height: calc(3rem + 0.5vw);
+	font-size: calc(1em + 0.5vw);
+	line-height: calc(3em + 0.5vw);
 }
 
 .tickets a {
@@ -363,16 +445,16 @@ li span {
 	transition: all 1s ease-in-out;
 }
 
-.details {
+.city-dates .details {
 	display: inline-block;
 	margin: 0 auto;
 	padding: 10px 5px 0;
-	font-size: calc(1rem + 0.25vw);
+	font-size: calc(1em + 0.25vw);
 	width: 100%;
 	max-width: 500px;
 }
 
-.details a {
+.city-dates .details a {
 	font-weight: 800;
 	letter-spacing: 1px;
 }
@@ -396,7 +478,7 @@ footer > a {
 	color: #a91c20;
 	transition: all 1s ease-in-out;
 	font-weight: 700;
-	font-size: calc(1rem + 0.5vw);
+	font-size: calc(1em + 0.5vw);
 }
 
 footer > a:hover {
@@ -411,7 +493,7 @@ footer ul li {
 }
 
 footer .socials li a {
-	font-size: calc(1rem + 0.5vw);
+	font-size: calc(1em + 0.5vw);
 	
 	border-bottom-width: 0.5vw;
 	border-bottom-style: solid;

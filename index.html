@@ -82,14 +82,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</header>
   
 	<nav>
-		<a href="https://cave.town/" target="_blank">Merch</a>
 		<a href="#popup">Pop-Up Galleries & Shows</a>
-		<a href="#performances">In-Store Performances</a>
+		<a href="#performances" data-trigger="#popup">In-Store Performances</a>
+		<a href="https://cave.town/" target="_blank">Merch</a>
 		<a href="#faq">FAQ</a>
 	</nav>
 		
   <div id="content">
-    <section id="popup">
+    <section id="popup" class="active">
 			<center><h2>pop-up galleries, shops & shows</h2></center>
       <p>
         I’m having a lil gallery of my paintings in NYC, Philadelphia, and London to celebrate the release of my new album Sleepyhead!! I’ll also have exclusive merch available including cassettes with demos version of my new songs and vinyl with a very limited screen-printed cover. There will be oat-milkshakes, donuts, and lots of 
@@ -100,7 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			
 			<center>
 				<h2>New York</h2>
-				<ul id="ny">
+				<ul id="ny" class="city-dates">
 					<li>
 						<span class="date">March 26th</span>
 						<span class="loc">Mercury Lounge</span>
@@ -122,7 +122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</ul>
 				
 				<h2>Philadelphia</h2>
-				<ul id="philly">
+				<ul id="philly" class="city-dates">
 					<li>
 						<span class="date">March 28th</span>
 						<span class="loc">Warehouse on Watts</span>
@@ -137,8 +137,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</li>
 				</ul>
 
-				<h2>London</h2>
-				<ul id="london">
+				<h2 class="london-header">London</h2>
+				<ul id="london" class="city-dates">
 					<li>
 						<span class="date">April 4th</span>
 						<span class="loc">[LOCATION NAME]</span>
@@ -153,54 +153,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</li>   
 				</ul>
 			</center>
+			<center id="performances">
+				<h2>in-store performances</h2>
+				<p>U can find me at these stores playing a few acoustic songs and giving hugs! :”)</p>
+				<ul>
+					<li>
+						<span class="date">March 19th</span>
+						<span class="loc">San Francisco, CA</span>
+						<span class="details">Amoeba Records</span>
+						<span class="tickets"><a>Location</a></span>
+					</li>
+					
+					<li>
+						<span class="date">March 20th</span>
+						<span class="loc">San Francisco, CA</span>
+						<span class="details">Amoeba Records</span>
+						<span class="tickets"><a>Location</a></span>
+					</li>
+					
+					<li>
+						<span class="date">March 25th</span>
+						<span class="loc">Long Island, NY</span>
+						<span class="details">Looney Tunes</span>
+						<span class="tickets"><a>Location</a></span>
+					</li>
+					
+					<li>
+						<span class="date">March 29th</span>
+						<span class="loc">Boston, MA</span>
+						<span class="details">Newbury Comics</span>
+						<span class="tickets"><a>Location</a></span>
+					</li>
+					
+					<li>
+						<span class="date">April TBD</span>
+						<span class="loc">Kingston, UK</span>
+						<span class="details">Banquet Records</span>
+						<span class="tickets"><a>Location</a></span>
+					</li>
+					
+					<li>
+						<span class="date">April TBD</span>
+						<span class="loc">London, UK</span>
+						<span class="details">Rough Trade East</span>
+						<span class="tickets"><a>Location</a></span>
+					</li>				
+				</ul>
+			</center>
     </section>
-		<section id="performances">
-			<center><h2>in-store performances</h2></center>
-			<p>U can find me at these stores playing a few acoustic songs and giving hugs! :”)</p>
-			<ul>
-				<li>
-					<span class="date">March 19th</span>
-					<span class="loc">San Francisco, CA - Amoeba Records</span>
-					<span class="details">Acoustic Show</span>
-					<span class="tickets"><a>Location</a></span>
-				</li>
-				
-				<li>
-					<span class="date">March 20th</span>
-					<span class="loc">San Francisco, CA - Amoeba Records</span>
-					<span class="details">Acoustic Show</span>
-					<span class="tickets"><a>Location</a></span>
-				</li>
-				
-				<li>
-					<span class="date">March 25th</span>
-					<span class="loc">Long Island, NY - Looney Tunes</span>
-					<span class="details">Acoustic Show</span>
-					<span class="tickets"><a>Location</a></span>
-				</li>
-				
-				<li>
-					<span class="date">March 29th</span>
-					<span class="loc">Boston, MA - Newbury Comics</span>
-					<span class="details">Acoustic Show</span>
-					<span class="tickets"><a>Location</a></span>
-				</li>
-				
-				<li>
-					<span class="date">April TBD</span>
-					<span class="loc">Kingston, UK - Banquet Records</span>
-					<span class="details">Acoustic Show</span>
-					<span class="tickets"><a>Location</a></span>
-				</li>
-				
-				<li>
-					<span class="date">April TBD</span>
-					<span class="loc">London, UK - Rough Trade East</span>
-					<span class="details">Acoustic Show</span>
-					<span class="tickets"><a>Location</a></span>
-				</li>				
-			</ul>
-		</section>
 		
 		<section id="faq">
 			<center><h2>faq</h2></center>
@@ -309,8 +309,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       toggleLoad();
 			$('nav a').on('click', function(){
 				$('.active').removeClass('active');
-				var href = $(this).attr('href');
-				console.log(href);
+				if($(this).data('trigger')) {
+					var href = $(this).data('trigger');
+				} else {
+					var href = $(this).attr('href');
+				}
+				
 				$(href).addClass('active');
 			});
     });
