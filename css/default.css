@@ -1,3 +1,7 @@
+* {
+	text-transform: lowercase;
+}
+
 body, html {
 	scroll-behavior: smooth;
 }
@@ -13,7 +17,6 @@ body {
 	align-items: center;
 	flex-direction: column;
 	z-index: 1;
-	padding-bottom: 23vh;
 	min-height: 95vh;
 	font-size: calc(1rem + 0.15vw);
 }
@@ -450,6 +453,7 @@ li span {
 	font-weight: 700;
 	font-size: calc(1em + 0.5vw);
 	line-height: calc(3em + 0.5vw);
+	margin-top: auto;
 }
 
 .tickets a {
@@ -472,10 +476,6 @@ li span {
 }
 
 footer {
-	position: absolute;
-	bottom: 4vh;
-	left: 0;
-	right: 0;
 	margin: auto;
 	max-width: 70vw;
 	text-align: center;
