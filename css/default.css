@@ -169,6 +169,15 @@ header img {
 	margin: auto;
 }
 
+.pre-order {
+	line-height: 2em;
+	margin: -1em 0 0 0;
+	padding: 10px; 
+	font-size: 1.5em;
+	background-color: #df5a6f;
+	border-radius: 50px;
+}
+
 nav {
 	display: flex;
 	justify-content: center;
