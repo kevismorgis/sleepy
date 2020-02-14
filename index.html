@@ -273,6 +273,9 @@
 				setTimeout( function() {
 					$('body').removeClass("loading");
 					$('body').addClass("loaded");
+					$("#spotify-presave").attr('src', 'https://campaigns.topsify.com/app/23233/cavetown-sleephead/embed/spotify');
+					$("#apple-presave").attr('src', 'https://campaigns.topsify.com/app/23233/cavetown-sleephead/embed/apple');
+					$("#deezer-presave").attr('src', 'https://campaigns.topsify.com/app/23233/cavetown-sleephead/embed/deezer');
 				}, 250);
 				
 			} else {
@@ -318,10 +321,6 @@
 		$(window).on("load", function() {
 			createStars();
 			toggleLoad();
-	
-			$("#spotify-presave").attr('src', 'https://campaigns.topsify.com/app/23233/cavetown-sleephead/embed/spotify');
-			$("#apple-presave").attr('src', 'https://campaigns.topsify.com/app/23233/cavetown-sleephead/embed/apple');
-			$("#deezer-presave").attr('src', 'https://campaigns.topsify.com/app/23233/cavetown-sleephead/embed/deezer');
 			
 			$('nav a').on('click', function(){
 				$('.active').removeClass('active');
